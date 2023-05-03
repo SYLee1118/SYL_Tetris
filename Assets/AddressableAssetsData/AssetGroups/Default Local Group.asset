@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d6548004ed307e44fb62b139665e081e
+  m_SerializeEntries:
+  - m_GUID: bbd7cb894fbbfa248a0b4a5408f545c5
+    m_Address: Block_T
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b5c21656eafc51f4c8af7242b8523672
+    m_Address: Block_L
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 518a961eb67521c45a16d28da4a60d61
+    m_Address: Block_Snake
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6786118fe160954fbd8ba2e1d988161
+    m_Address: Block_Box
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 550977403f1730642af673d5e7002a4f
+    m_Address: Block_Long
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 669d9080c6da7134ba1bfbaa8a2e8bad
+    m_Address: Block_Snake_R
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f7beb610ae1b7224fa8ba6820a1474bc
+    m_Address: Block_L_R
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1c0a561b749c6ea499494f139c7201f2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 31ecbaeec67a24848919fa17e27f7054, type: 2}
+    - {fileID: 11400000, guid: 84ac2a32b1373ad4699e266eec6c97a8, type: 2}

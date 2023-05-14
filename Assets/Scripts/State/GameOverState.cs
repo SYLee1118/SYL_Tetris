@@ -28,6 +28,7 @@ public class GameOverState : GameStateBase
 		{
 			owner.ChangeState(GameState.Start);
 			owner.BlockController.ResetBlocks();
+			owner.CameraController.ResetPosition();
 		}
 	}
 }

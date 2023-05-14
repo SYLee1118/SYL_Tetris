@@ -60,6 +60,7 @@ public class StateController : MonoBehaviour
 
 	private void Start()
 	{
+		Screen.SetResolution(540, 960, false);
 		ChangeState(GameState.Start);
 	}
 

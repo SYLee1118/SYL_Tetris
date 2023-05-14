@@ -27,4 +27,10 @@ public class CameraController : MonoBehaviour
 			transform.position = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, lerpTime);
 		}
 	}
+
+	public void ResetPosition()
+	{
+		camera.transform.position = new Vector3(0, 0, -10);
+		blockPosition = new Vector3(0, -10, 0);
+	}
 }

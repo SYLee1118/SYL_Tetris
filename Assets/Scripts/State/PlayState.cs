@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class PlayState : GameStateBase
@@ -14,7 +13,7 @@ public class PlayState : GameStateBase
 
 	private void SetBlockSpeed()
 	{
-		float fallSpeed = Mathf.Min(10f + score / 2f, 25f);
+		float fallSpeed = Mathf.Min(3f + score * 0.2f, 10f);
 
 		owner.BlockController.SetBlockSpeed(fallSpeed);
 	}

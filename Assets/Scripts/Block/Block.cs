@@ -28,7 +28,7 @@ public class Block : MonoBehaviour
 	{
 		Vector3 position = transform.position;
 		position += _speed;
-		rigidbody.MovePosition(position);
+		transform.position = position;
 	}
 
 	public void Rotate()

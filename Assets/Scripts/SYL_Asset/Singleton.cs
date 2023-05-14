@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-	private static T instance;
+	protected static T instance;
 
 	public static T Instance
 	{
@@ -27,7 +27,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 			return instance;
 		}
 	}
-	public static T it => instance;
+	public static T it => Instance;
 
 	public abstract void Dispose();
 }

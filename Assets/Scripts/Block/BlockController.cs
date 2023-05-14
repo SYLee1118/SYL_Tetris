@@ -12,14 +12,16 @@ public class BlockController : MonoBehaviour
 	private BlockFactory factory;
 	private Block currentBlock = null;
 
-	public int Score { get; private set; }
+	public Block CurrnetBlock => currentBlock;
+
+	private List<Block> blocks = new List<Block>();
 
 	private void Start()
 	{
 		factory = new BlockFactory();
 	}
 
-	public void CreateRandomBlock()
+	public void CreateRandomBlock(System.Action<Block> _action)
 	{
 		currentBlock = null;
 
@@ -31,9 +33,31 @@ public class BlockController : MonoBehaviour
 
 		factory.CreateBlock(randomBlockType, topCenter, Quaternion.identity, (block) =>
 		{
-			block.SetCollidingAction(CreateRandomBlock);
+			block.SetCollidingAction(() =>
+			{
+				currentBlock = null;
+				_action?.Invoke(block);
+				SoundManager.it.PlaySFX("BlockDrop");
+			});
 			currentBlock = block;
+			blocks.Add(block);
 		});
+	}
+
+	public void ResetBlocks()
+	{
+		for (int i = 0; i <  blocks.Count; i++) 
+		{
+			var block = blocks[i];
+			Destroy(block.gameObject);
+		}
+
+		blocks.Clear();
+	}
+
+	public void SetBlockSpeed(float _speed)
+	{
+		blockFallingSpeed = _speed;
 	}
 
 	private void Update()

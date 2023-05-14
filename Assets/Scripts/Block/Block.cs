@@ -7,11 +7,17 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 	private Rigidbody2D rigidbody;
+	private StateController owner;
 
 	// 최초 충돌시 RigidBody type을 Kinematic -> Dynamic으로 변환하는걸 체크하기 위한 용도
 	bool isCollided = false;
 
 	private Action FirstCollidingAction;
+
+	public void SetOwner(StateController _owner)
+	{
+		owner = _owner;
+	}
 
 	public void SetCollidingAction(Action _firstCollidingAction)
 	{
@@ -43,6 +49,14 @@ public class Block : MonoBehaviour
 			rigidbody.freezeRotation = false;
 			isCollided = true;
 			FirstCollidingAction?.Invoke();
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "GameOver")
+		{
+			owner.ChangeState(GameState.GameOver);
 		}
 	}
 

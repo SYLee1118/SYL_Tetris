@@ -12,37 +12,42 @@ public class SoundManager : Singleton<SoundManager>
 	{
 		if (loadedClips.TryGetValue(address, out AsyncOperationHandle<AudioClip> handle))
 		{
-			AudioManager.Instance.PlayBGM(handle.Result);
+			AudioManager.it.PlayBGM(handle.Result);
 		}
 		else
 		{
 			Addressables.LoadAssetAsync<AudioClip>(address).Completed += handle =>
 			{
 				loadedClips[address] = handle;
-				AudioManager.Instance.PlayBGM(handle.Result);
+				AudioManager.it.PlayBGM(handle.Result);
 			};
 		}
+	}
+
+	public void StopBGM()
+	{
+		AudioManager.it.StopBGM();
 	}
 
 	public void PlaySFX(string address)
 	{
 		if (loadedClips.TryGetValue(address, out AsyncOperationHandle<AudioClip> handle))
 		{
-			AudioManager.Instance.PlaySFX(handle.Result);
+			AudioManager.it.PlaySFX(handle.Result);
 		}
 		else
 		{
 			Addressables.LoadAssetAsync<AudioClip>(address).Completed += handle =>
 			{
 				loadedClips[address] = handle;
-				AudioManager.Instance.PlaySFX(handle.Result);
+				AudioManager.it.PlaySFX(handle.Result);
 			};
 		}
 	}
 
 	public override void Dispose()
 	{
-		AudioManager.Instance.StopAllSounds();
+		AudioManager.it.StopAllSounds();
 		foreach (var handle in loadedClips.Values)
 		{
 			if (handle.IsValid())

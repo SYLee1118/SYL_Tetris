@@ -26,8 +26,12 @@ public abstract class GameStateBase
 public class StateController : MonoBehaviour
 {
 	[SerializeField] private BlockController blockController;
+	[SerializeField] private UIController uiController;
+	[SerializeField] private CameraController cameraController;
 
 	public BlockController BlockController { get { return blockController; } }
+	public UIController UIController { get { return uiController; } }
+	public CameraController CameraController { get { return cameraController; } }
 
 	private GameStateBase currentState;
 

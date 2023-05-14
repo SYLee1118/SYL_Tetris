@@ -10,6 +10,7 @@ public class StartState : GameStateBase
 
 	public override void Enter()
 	{
+		owner.UIController.SetText("PRESS\nSPACE");
 	}
 
 	public override void Exit()
@@ -18,6 +19,9 @@ public class StartState : GameStateBase
 
 	public override void Update()
 	{
-		owner.ChangeState(GameState.Play);
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			owner.ChangeState(GameState.Play);
+		}
 	}
 }

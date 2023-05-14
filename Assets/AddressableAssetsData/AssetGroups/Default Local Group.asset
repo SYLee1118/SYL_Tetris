@@ -45,6 +45,18 @@ MonoBehaviour:
     m_Address: Block_L_R
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: b76089f7db8185446925a3e793691755
+    m_Address: bgm
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b99da9a57308d4ba1bee1cf1d9038376
+    m_Address: GameOver
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffb159a21c8a04135a5616979c828fab
+    m_Address: BlockDrop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c0a561b749c6ea499494f139c7201f2, type: 2}
   m_SchemaSet:

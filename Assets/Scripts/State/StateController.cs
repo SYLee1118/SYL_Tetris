@@ -9,16 +9,27 @@ public enum GameState
 	GameOver
 }
 
-public interface IGameState
+public abstract class GameStateBase
 {
-	void Enter();
-	void Update();
-	void Exit();
+	protected StateController owner;
+
+	public GameStateBase(StateController _owner)
+	{
+		this.owner = _owner;
+	}
+
+	public abstract void Enter();
+	public abstract void Update();
+	public abstract void Exit();
 }
 
 public class StateController : MonoBehaviour
-{ 
-	private IGameState currentState;
+{
+	[SerializeField] private BlockController blockController;
+
+	public BlockController BlockController { get { return blockController; } }
+
+	private GameStateBase currentState;
 
 	public void ChangeState(GameState state)
 	{
@@ -30,17 +41,22 @@ public class StateController : MonoBehaviour
 		switch (state)
 		{
 			case GameState.Start:
-				currentState = new StartState();
+				currentState = new StartState(this);
 				break;
 			case GameState.Play:
-				currentState = new PlayState();
+				currentState = new PlayState(this);
 				break;
 			case GameState.GameOver:
-				currentState = new GameOverState();
+				currentState = new GameOverState(this);
 				break;
 		}
 
 		currentState.Enter();
+	}
+
+	private void Start()
+	{
+		ChangeState(GameState.Start);
 	}
 
 	private void Update()

@@ -17,10 +17,9 @@ public class BlockController : MonoBehaviour
 	private void Start()
 	{
 		factory = new BlockFactory();
-		CreateRandomBlock();
 	}
 
-	private void CreateRandomBlock()
+	public void CreateRandomBlock()
 	{
 		currentBlock = null;
 
